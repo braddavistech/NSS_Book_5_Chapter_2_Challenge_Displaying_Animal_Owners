@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import "./OwnersList.css";
-import AnimalList from '../animals/AnimalList';
 
 class OwnersList extends Component {
   render() {
