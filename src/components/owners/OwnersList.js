@@ -3,13 +3,21 @@ import "./OwnersList.css";
 
 class OwnersList extends Component {
   render() {
-    let animalNames = [];
+    let animalNumbers = [];
     this.props.animals.map(animal =>
-      animalNames.push(animal)
+      animalNumbers.push(animal)
     )
-    this.props.owners.map(owner =>
-      owner.animal = animalNames[owner.animalId - 1]
-    )
+    this.props.owners.map(owner => {
+      let tempString = []
+      owner.animalId.map(pups => {
+        let number = pups - 1
+        tempString.push(animalNumbers[number].name)
+        return tempString
+      })
+      tempString = tempString.join(", ")
+      owner.animalNames = tempString
+      return owner
+    })
     return (
       <div>
         <header>ANIMAL OWNERS</header>
@@ -17,7 +25,7 @@ class OwnersList extends Component {
           this.props.owners.map(owner =>
             < section className="owners" key={owner.id} >
               <h4>{owner.name}</h4>
-              <h5>Owner of {owner.animal.name}, a {owner.animal.breed}.</h5>
+              <h5>PETS: {owner.animalNames}</h5>
             </section>
           )
         }

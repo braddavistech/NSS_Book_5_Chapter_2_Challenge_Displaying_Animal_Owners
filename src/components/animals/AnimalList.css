@@ -3,8 +3,8 @@ header {
 }
 .animal > h4 {
   font-size: 4vw;
+  padding-top: 2vw;
 }
 .animal > h5 {
   font-size: 3vw;
-  margin-bottom: 2vw;
 }
